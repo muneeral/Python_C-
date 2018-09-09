@@ -19,10 +19,16 @@ error:
 	return PyLong_FromLongLong(input_value + 2);
 }
 
+PyObject* some_function3(PyObject* self, PyObject* args) {
+	printf("Hello from C++");
+	return args;
+}
+
 
 PyMethodDef SpamMethods[]{
 	{"add_one", (PyCFunction)some_function1, METH_VARARGS, 0},
 	{"add_two", (PyCFunction)some_function2, METH_VARARGS, 0},
+	{"add_hello", (PyCFunction)some_function3, METH_VARARGS, 0},
 	{0,0,0,0}
 };
 
